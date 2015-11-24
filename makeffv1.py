@@ -30,14 +30,14 @@ os.makedirs(data_dir)
 os.makedirs(provenance_dir)
 
 #Generate filenames for new files in AIP.
-inputxml  = "%s/%s.xml" % (metadata_dir, filename)
-output    = "%s/%s.mkv" % (data_dir, os.path.splitext(filename)[0])
+inputxml  = "%s/%s.xml" % (metadata_dir,os.path.basename(filename) )
+output    = "%s/%s.mkv" % (data_dir, os.path.basename(filename))
 
 # Generate filename of ffv1.mkv without the path.
 outputfilename = os.path.basename(output)
 
 outputxml = "%s/%s.xml" % (metadata_dir, outputfilename)
-fmd5      = "%s/%s.framemd5" % (provenance_dir, filename)
+fmd5      = "%s/%s.framemd5" % (provenance_dir, os.path.basename(filename))
 fmd5ffv1  = output + ".framemd5"
 
 # Transcode video file writing frame md5 and output appropriately
