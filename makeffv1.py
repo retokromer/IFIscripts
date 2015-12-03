@@ -13,16 +13,16 @@ root = Tk()
 root.update()
 # Directory with files that we want to transcode losslessly and generate metadata for
 filename = tkFileDialog.askopenfilename(parent=root)
-
+filenoext = os.path.splitext(filename)[0]
 # Change directory to directory with video files
 
 
-print os.path.splitext(filename)
+print filenoext
 # Generate new directory names in AIP
-metadata_dir   = "/%s/metadata" % os.path.splitext(filename)[0]
+metadata_dir   = "%s/metadata" % filenoext
 
-data_dir   = "/%s/data" % os.path.splitext(filename)[0]
-provenance_dir   = "/%s/provenance" % os.path.splitext(filename)[0]
+data_dir   = "%s/data" % filenoext
+provenance_dir   = "%s/provenance" % filenoext
 
 # Actually create the directories.
 os.makedirs(metadata_dir)
